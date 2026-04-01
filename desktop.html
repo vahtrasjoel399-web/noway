@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noway - Desktop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="desktop-page">
+
+    <!-- Full-screen desktop background (clean wallpaper) -->
+    <img src="IMAGES/Green Hills Landscape.png" alt="Desktop" class="desktop-bg">
+
+    <!-- Noway logo (top-left) -->
+    <img src="IMAGES/noway_big_logo0.png" alt="Noway" class="desktop-logo">
+
+    <!-- Shutdown / Back to Start button -->
+    <button class="shutdown-btn" onclick="navigateTo('index.html');" title="Shut Down">&#9211; Shut Down</button>
+
+    <!-- Video Player (centered, unclosable, WMP skin) -->
+    <div class="video-window" id="videoWindow">
+      <div class="wmp-frame">
+        <img src="IMAGES/65cdf70f470682f6643d998a215ed41d.png" alt="Player" class="wmp-skin">
+        <video id="mainVideo" controls>
+          <source src="IMAGES/video.mp4" type="video/mp4">
+          <source src="IMAGES/video.webm" type="video/webm">
+          Your browser does not support video playback.
+        </video>
+      </div>
+    </div>
+
+    <!-- Desktop Icons -->
+    <div class="desktop-icons-row">
+
+      <a href="trend.html" class="desktop-icon" id="iconPortfoolio" onclick="event.preventDefault(); navigateTo('trend.html');">
+        <img src="IMAGES/portfoolio_icon0.png" alt="Portfoolio" class="icon-img">
+        <span class="icon-label">portfoolio</span>
+      </a>
+
+      <a href="trend.html" class="desktop-icon" id="iconTeenused" onclick="event.preventDefault(); navigateTo('trend.html');">
+        <img src="IMAGES/teenused_icon0.png" alt="Teenused" class="icon-img">
+        <span class="icon-label">teenused</span>
+      </a>
+
+      <a href="about.html" class="desktop-icon" id="iconKontakt" onclick="event.preventDefault(); navigateTo('about.html');">
+        <img src="IMAGES/kontakt_icon0.png" alt="Kontakt" class="icon-img">
+        <span class="icon-label">kontakt</span>
+      </a>
+
+      <a href="about.html" class="desktop-icon" id="iconMeist" onclick="event.preventDefault(); navigateTo('about.html');">
+        <img src="IMAGES/meist_icon0.png" alt="Meist" class="icon-img">
+        <span class="icon-label">meist</span>
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- Page Transition -->
+  <div class="page-transition" id="pageTransition"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

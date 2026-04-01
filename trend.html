@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noway - Trend</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="inner-page">
+
+    <!-- Blurred desktop background -->
+    <img src="IMAGES/Green Hills Landscape.png" alt="" class="desktop-bg">
+
+    <!-- Fullscreen Window -->
+    <div class="inner-window">
+      <div class="win-titlebar">
+        <span class="title">&#128200; Trend - Noway Products &amp; Services</span>
+        <div class="window-controls">
+          <button title="Minimize">_</button>
+          <button title="Maximize">&#9633;</button>
+          <button title="Close" onclick="navigateTo('desktop.html')">&#10005;</button>
+        </div>
+      </div>
+      <div class="win-menubar">
+        <button onclick="navigateTo('desktop.html')">&#8592; Back</button>
+        <button>File</button>
+        <button>View</button>
+        <button>Help</button>
+      </div>
+      <div class="win-body">
+        <div class="inner-content">
+
+          <a href="desktop.html" class="back-btn" onclick="event.preventDefault(); navigateTo('desktop.html');">&#8592; Back to Desktop</a>
+
+          <h1>&#128200; Our Products &amp; Services</h1>
+
+          <p>Noway delivers cutting-edge solutions designed to empower businesses and individuals. Explore our product lines below.</p>
+
+          <div class="card-grid">
+            <div class="card">
+              <div class="card-icon">&#128187;</div>
+              <h3>Digital Solutions</h3>
+              <p>Custom software development, web applications, and digital transformation consulting.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">&#128202;</div>
+              <h3>Analytics Platform</h3>
+              <p>Real-time data analytics and business intelligence dashboards for smarter decisions.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">&#9729;&#65039;</div>
+              <h3>Cloud Services</h3>
+              <p>Scalable cloud infrastructure, hosting, and managed services for growing businesses.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">&#128272;</div>
+              <h3>Cybersecurity</h3>
+              <p>Enterprise-grade security audits, monitoring, and incident response solutions.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">&#128241;</div>
+              <h3>Mobile Apps</h3>
+              <p>Cross-platform mobile application design and development for iOS and Android.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">&#129302;</div>
+              <h3>AI &amp; Automation</h3>
+              <p>Machine learning models, process automation, and intelligent workflow systems.</p>
+            </div>
+          </div>
+
+          <h2>Why Choose Noway?</h2>
+          <p>With years of industry experience, Noway combines innovation with reliability. Our team of experts works closely with each client to deliver tailored solutions that drive growth and efficiency.</p>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-transition" id="pageTransition"></div>
+  <script src="script.js"></script>
+</body>
+</html>

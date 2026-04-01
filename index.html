@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noway</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="landing-page" id="landingPage">
+
+    <!-- Full-screen computer background -->
+    <img src="IMAGES/Logo on Screen 1.png" alt="Noway Computer" class="landing-bg" id="computerImg">
+
+    <!-- Screen overlay: Start button at bottom of screen -->
+    <div class="screen-overlay" id="screenOverlay">
+      <button class="start-btn" id="startBtn">&#9654; START</button>
+    </div>
+
+    <!-- Hint text: positioned below the keyboard area -->
+    <p class="hint-text" id="hintText">&#9654; Click the button</p>
+
+  </div>
+
+  <!-- Boot Sequence Overlay -->
+  <div class="boot-overlay" id="bootOverlay">
+    <div class="boot-text" id="bootText"></div>
+    <div class="boot-progress-bar">
+      <div class="fill" id="bootFill"></div>
+    </div>
+  </div>
+
+  <!-- Page Transition -->
+  <div class="page-transition" id="pageTransition"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

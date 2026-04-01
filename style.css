@@ -1,0 +1,697 @@
+/* ===== GLOBAL RESET & BASE ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap');
+
+:root {
+  --win-blue: #0055aa;
+  --win-gray: #c0c0c0;
+  --win-dark: #808080;
+  --win-light: #ffffff;
+  --win-black: #000000;
+  --win-taskbar: #c0c0c0;
+  --win-title: #000080;
+  --win-title-text: #ffffff;
+  --font-retro: 'VT323', monospace;
+  --font-pixel: 'Press Start 2P', cursive;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-retro);
+}
+
+
+/* =========================================================
+   LANDING PAGE (index.html)
+   ========================================================= */
+.landing-page {
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The computer image fills the viewport */
+.landing-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 1;
+}
+
+/* Screen overlay: button at bottom of screen area */
+.screen-overlay {
+  position: absolute;
+  z-index: 5;
+  top: 14%;
+  left: 33%;
+  width: 34%;
+  height: 34%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 8%;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+
+.screen-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Start button — 80s retro PC style */
+.start-btn {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 40px;
+  background: #000;
+  color: #33ff33;
+  border: 2px solid #33ff33;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 0 0 8px #33ff33;
+  box-shadow: 0 0 10px rgba(51, 255, 51, 0.3), inset 0 0 20px rgba(51, 255, 51, 0.05);
+  transition: all 0.3s ease;
+  animation: startBlink 1.5s ease-in-out infinite;
+}
+
+@keyframes startBlink {
+  0%, 100% { box-shadow: 0 0 10px rgba(51, 255, 51, 0.3), inset 0 0 20px rgba(51, 255, 51, 0.05); }
+  50% { box-shadow: 0 0 20px rgba(51, 255, 51, 0.6), inset 0 0 30px rgba(51, 255, 51, 0.1); }
+}
+
+.start-btn:hover {
+  background: #33ff33;
+  color: #000;
+  text-shadow: none;
+  box-shadow: 0 0 30px rgba(51, 255, 51, 0.8);
+  transform: scale(1.05);
+}
+
+.start-btn:active {
+  transform: scale(0.95);
+}
+
+/* Hint text: below the keyboard */
+.hint-text {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-retro);
+  font-size: 24px;
+  color: rgba(255,255,255,0.5);
+  z-index: 5;
+  animation: hintBlink 2s ease-in-out infinite;
+  white-space: nowrap;
+}
+
+@keyframes hintBlink {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+/* Boot animation overlay */
+.boot-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.boot-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.boot-text {
+  font-family: var(--font-retro);
+  font-size: 20px;
+  color: #aaa;
+  text-align: left;
+  width: 600px;
+  max-width: 90vw;
+  line-height: 1.6;
+}
+
+.boot-text span {
+  display: block;
+  opacity: 0;
+  animation: typeIn 0.3s forwards;
+}
+
+@keyframes typeIn {
+  to { opacity: 1; }
+}
+
+.boot-progress-bar {
+  margin-top: 30px;
+  width: 400px;
+  max-width: 80vw;
+  height: 20px;
+  border: 2px solid #aaa;
+}
+
+.boot-progress-bar .fill {
+  height: 100%;
+  width: 0%;
+  background: #00aaff;
+  transition: width 0.4s ease;
+}
+
+
+/* =========================================================
+   DESKTOP PAGE (desktop.html)
+   ========================================================= */
+.desktop-page {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Full-screen desktop background */
+.desktop-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Noway logo top-left */
+.desktop-logo {
+  position: absolute;
+  top: 3%;
+  left: 3%;
+  width: 180px;
+  height: auto;
+  z-index: 5;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+}
+
+/* Shutdown button (top-right) */
+.shutdown-btn {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.shutdown-btn:hover {
+  background: rgba(200, 0, 0, 0.7);
+  border-color: #ff4444;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.3);
+}
+
+.shutdown-btn:active {
+  transform: scale(0.95);
+}
+
+/* Video player window — centered, unclosable, WMP skin */
+.video-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 46%;
+  max-width: 680px;
+  min-width: 320px;
+}
+
+.wmp-frame {
+  position: relative;
+  width: 100%;
+}
+
+.wmp-skin {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  position: relative;
+  z-index: 2;
+}
+
+.wmp-frame video {
+  position: absolute;
+  /* Video area inside the WMP skin image */
+  top: 9.5%;
+  left: 5.5%;
+  width: 89%;
+  height: 62%;
+  z-index: 1;
+  background: #000;
+  object-fit: contain;
+}
+
+/* Desktop icons positioned at the bottom, matching the mockup layout */
+.desktop-icons-row {
+  position: absolute;
+  bottom: 4%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 0 4%;
+  z-index: 20;
+}
+
+.desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.desktop-icon:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.3);
+  transform: translateY(-4px);
+}
+
+.desktop-icon:active {
+  background: rgba(0,0,128,0.4);
+  border: 2px dotted #fff;
+  transform: translateY(0);
+}
+
+.desktop-icon .icon-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(2px 3px 4px rgba(0,0,0,0.4));
+  transition: transform 0.2s ease;
+}
+
+.desktop-icon:hover .icon-img {
+  transform: scale(1.1);
+}
+
+.desktop-icon .icon-label {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 3px #000, 0 0 8px rgba(0,0,0,0.6);
+  text-align: center;
+}
+
+
+/* =========================================================
+   INNER PAGES (trend.html, about.html)
+   ========================================================= */
+.inner-page {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.inner-page .desktop-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.4) blur(3px);
+}
+
+/* Full-size window on inner pages */
+.inner-window {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  background: var(--win-gray);
+  border: 2px solid;
+  border-color: #dfdfdf #808080 #808080 #dfdfdf;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+}
+
+.win-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, var(--win-title), #1084d0);
+  padding: 3px 4px;
+  cursor: default;
+  flex-shrink: 0;
+}
+
+.win-titlebar .title {
+  color: var(--win-title-text);
+  font-size: 13px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  padding-left: 4px;
+}
+
+.win-titlebar .window-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.win-titlebar .window-controls button {
+  width: 21px;
+  height: 21px;
+  background: var(--win-gray);
+  border: 2px solid;
+  border-color: #dfdfdf #808080 #808080 #dfdfdf;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+.win-titlebar .window-controls button:active {
+  border-color: #808080 #dfdfdf #dfdfdf #808080;
+}
+
+.win-menubar {
+  display: flex;
+  gap: 0;
+  background: var(--win-gray);
+  border-bottom: 1px solid #808080;
+  padding: 2px 0;
+  flex-shrink: 0;
+}
+
+.win-menubar button {
+  background: none;
+  border: none;
+  padding: 2px 10px;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.win-menubar button:hover {
+  background: var(--win-title);
+  color: #fff;
+}
+
+.win-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+  background: var(--win-gray);
+}
+
+.inner-content {
+  background: #fff;
+  border: 2px solid;
+  border-color: #808080 #dfdfdf #dfdfdf #808080;
+  margin: 4px;
+  padding: 30px 40px;
+  min-height: calc(100% - 8px);
+  font-size: 15px;
+  line-height: 1.7;
+  color: #222;
+}
+
+.inner-content h1 {
+  font-family: var(--font-pixel);
+  font-size: 22px;
+  color: var(--win-title);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--win-title);
+  padding-bottom: 10px;
+}
+
+.inner-content h2 {
+  font-size: 20px;
+  color: #333;
+  margin: 24px 0 12px;
+}
+
+.inner-content p {
+  margin-bottom: 14px;
+}
+
+.inner-content .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.inner-content .card {
+  background: var(--win-gray);
+  border: 2px solid;
+  border-color: #dfdfdf #808080 #808080 #dfdfdf;
+  padding: 20px;
+  text-align: center;
+}
+
+.inner-content .card h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: var(--win-title);
+}
+
+.inner-content .card p {
+  font-size: 13px;
+  color: #555;
+}
+
+.inner-content .card .card-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 18px;
+  margin-bottom: 20px;
+  background: var(--win-gray);
+  border: 2px solid;
+  border-color: #dfdfdf #808080 #808080 #dfdfdf;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+}
+
+.back-btn:active {
+  border-color: #808080 #dfdfdf #dfdfdf #808080;
+}
+
+.back-btn:hover {
+  background: #d0d0d0;
+}
+
+/* About page specifics */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.team-member {
+  background: var(--win-gray);
+  border: 2px solid;
+  border-color: #dfdfdf #808080 #808080 #dfdfdf;
+  padding: 20px;
+  text-align: center;
+}
+
+.team-member .avatar {
+  width: 64px;
+  height: 64px;
+  background: var(--win-title);
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #fff;
+}
+
+.team-member h3 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.team-member p {
+  font-size: 12px;
+  color: #666;
+}
+
+
+/* =========================================================
+   PAGE TRANSITION
+   ========================================================= */
+.page-transition {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.page-transition.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px) {
+  .screen-overlay {
+    top: 16%;
+    left: 30%;
+    width: 40%;
+    height: 30%;
+    gap: 12px;
+  }
+
+  .screen-logo {
+    width: 50%;
+  }
+
+  .start-btn {
+    font-size: 13px;
+    padding: 8px 28px;
+    letter-spacing: 3px;
+  }
+
+  .desktop-icon .icon-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .desktop-icon .icon-label {
+    font-size: 13px;
+  }
+
+  .video-window {
+    width: 55%;
+  }
+
+  .desktop-logo {
+    width: 120px;
+  }
+}
+
+@media (max-width: 600px) {
+  .screen-overlay {
+    top: 18%;
+    left: 28%;
+    width: 44%;
+    height: 26%;
+    gap: 8px;
+  }
+
+  .screen-logo {
+    width: 45%;
+  }
+
+  .start-btn {
+    font-size: 10px;
+    padding: 6px 18px;
+    letter-spacing: 2px;
+  }
+
+  .hint-text {
+    font-size: 16px;
+    bottom: 4%;
+  }
+
+  .desktop-icon .icon-img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .desktop-icon .icon-label {
+    font-size: 11px;
+  }
+
+  .video-window {
+    width: 70%;
+  }
+
+  .inner-window {
+    margin: 8px;
+  }
+
+  .inner-content {
+    padding: 16px;
+  }
+
+  .inner-content h1 {
+    font-size: 16px;
+  }
+}
