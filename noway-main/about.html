@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noway - About Us</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="inner-page">
+
+    <!-- Blurred desktop background -->
+    <img src="IMAGES/Green Hills Landscape.png" alt="" class="desktop-bg">
+
+    <!-- Fullscreen Window -->
+    <div class="inner-window">
+      <div class="win-titlebar">
+        <span class="title">&#128196; About Us - Noway</span>
+        <div class="window-controls">
+          <button title="Minimize">_</button>
+          <button title="Maximize">&#9633;</button>
+          <button title="Close" onclick="navigateTo('desktop.html')">&#10005;</button>
+        </div>
+      </div>
+      <div class="win-menubar">
+        <button onclick="navigateTo('desktop.html')">&#8592; Back</button>
+        <button>File</button>
+        <button>View</button>
+        <button>Help</button>
+      </div>
+      <div class="win-body">
+        <div class="inner-content">
+
+          <a href="desktop.html" class="back-btn" onclick="event.preventDefault(); navigateTo('desktop.html');">&#8592; Back to Desktop</a>
+
+          <h1>&#128196; About Noway</h1>
+
+          <p>Noway is a forward-thinking technology company dedicated to transforming ideas into reality. Founded with the mission to bridge the gap between innovation and everyday solutions, we empower businesses worldwide with modern tools and strategies.</p>
+
+          <h2>Our Mission</h2>
+          <p>To deliver exceptional technology solutions that make a real difference. We believe in building products that are reliable, intuitive, and designed to grow alongside our clients.</p>
+
+          <h2>Our Values</h2>
+          <div class="card-grid">
+            <div class="card">
+              <div class="card-icon">&#128161;</div>
+              <h3>Innovation</h3>
+              <p>We push boundaries and explore new possibilities in everything we do.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">&#129309;</div>
+              <h3>Trust</h3>
+              <p>Transparency and honesty are the foundation of every relationship we build.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">&#127919;</div>
+              <h3>Excellence</h3>
+              <p>We hold ourselves to the highest standards of quality and craftsmanship.</p>
+            </div>
+          </div>
+
+          <h2>Our Team</h2>
+          <div class="team-grid">
+            <div class="team-member">
+              <div class="avatar">&#128100;</div>
+              <h3>Alex Morgan</h3>
+              <p>CEO &amp; Founder</p>
+            </div>
+            <div class="team-member">
+              <div class="avatar">&#128100;</div>
+              <h3>Jordan Lee</h3>
+              <p>CTO</p>
+            </div>
+            <div class="team-member">
+              <div class="avatar">&#128100;</div>
+              <h3>Sam Rivera</h3>
+              <p>Head of Design</p>
+            </div>
+            <div class="team-member">
+              <div class="avatar">&#128100;</div>
+              <h3>Taylor Kim</h3>
+              <p>Lead Developer</p>
+            </div>
+          </div>
+
+          <h2>Contact</h2>
+          <p>Have questions or want to work with us? Reach out at <strong>hello@noway.com</strong> and we'll get back to you.</p>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-transition" id="pageTransition"></div>
+  <script src="script.js"></script>
+</body>
+</html>

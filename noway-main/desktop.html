@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noway - Desktop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="desktop-page">
+
+    <img src="IMAGES/Green Hills Landscape.png" alt="Desktop" class="desktop-bg">
+
+    <img src="IMAGES/noway_big_logo0.png" alt="Noway" class="desktop-logo">
+
+    <!-- Shutdown button -->
+    <button class="shutdown-btn" onclick="shutDown()">&#9211; Shut Down</button>
+
+    <!-- Video window -->
+    <div class="win-window video-win">
+      <div class="win-titlebar">
+        <span class="title">&#127909; noway</span>
+        <div class="window-controls">
+          <button title="Minimize">_</button>
+          <button title="Maximize">&#9633;</button>
+          <button title="Close">&#10005;</button>
+        </div>
+      </div>
+      <div class="win-video-body">
+        <video id="mainVideo" autoplay muted loop playsinline>
+          <source src="IMAGES/video.mp4" type="video/mp4">
+          <source src="IMAGES/video.webm" type="video/webm">
+        </video>
+      </div>
+    </div>
+
+    <!-- Contact popup -->
+    <div class="win-window contact-win" id="contactWindow">
+      <div class="win-titlebar">
+        <span class="title">Noway</span>
+        <div class="window-controls">
+          <button title="Minimize">_</button>
+          <button title="Maximize">&#9633;</button>
+          <button title="Close" onclick="document.getElementById('contactWindow').style.display='none'">&#10005;</button>
+        </div>
+      </div>
+      <div class="contact-body">
+        <p>teeme koostööd?</p>
+        <button class="win98-btn" onclick="navigateTo('about.html')">kirjuta meile</button>
+      </div>
+    </div>
+
+    <!-- Desktop icons — horizontal bottom row -->
+    <div class="desktop-icons-row">
+
+      <a href="trend.html" class="desktop-icon" onclick="event.preventDefault(); navigateTo('trend.html');">
+        <img src="IMAGES/User Accounts.png" alt="Portfoolio" class="icon-img">
+        <span class="icon-label">portfoolio</span>
+      </a>
+
+      <a href="trend.html" class="desktop-icon" onclick="event.preventDefault(); navigateTo('trend.html');">
+        <img src="IMAGES/Game Controller.png" alt="Teenused" class="icon-img">
+        <span class="icon-label">teenused</span>
+      </a>
+
+      <a href="about.html" class="desktop-icon" onclick="event.preventDefault(); navigateTo('about.html');">
+        <img src="IMAGES/Phone.png" alt="Kontakt" class="icon-img">
+        <span class="icon-label">kontakt</span>
+      </a>
+
+      <a href="about.html" class="desktop-icon" onclick="event.preventDefault(); navigateTo('about.html');">
+        <img src="IMAGES/Folder Open.png" alt="Meist" class="icon-img">
+        <span class="icon-label">meist</span>
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- Shutdown overlay -->
+  <div class="shutdown-overlay" id="shutdownOverlay">
+    <div class="shutdown-content" id="shutdownContent">
+      <div class="xp-logo">
+        <div class="xp-flag">
+          <div class="xp-tl"></div>
+          <div class="xp-tr"></div>
+          <div class="xp-bl"></div>
+          <div class="xp-br"></div>
+        </div>
+        <div class="xp-wordmark">
+          <span class="xp-microsoft">Microsoft</span>
+          <span class="xp-name">Windows<em>XP</em></span>
+        </div>
+      </div>
+      <p class="shutdown-msg">Windows is shutting down...</p>
+    </div>
+  </div>
+
+  <div class="page-transition" id="pageTransition"></div>
+  <script src="script.js"></script>
+</body>
+</html>
