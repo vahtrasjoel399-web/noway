@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Noway privaatsuspoliitika — kuidas me sinu andmeid kasutame.">
+  <title data-i18n="doc.privacy">Noway — Privaatsuspoliitika</title>
+  <link rel="icon" type="image/png" href="IMAGES/noway_big_logo0.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="inner-page">
+
+    <!-- Blurred desktop background -->
+    <img src="IMAGES/Green Hills Landscape.png" alt="" class="desktop-bg">
+
+    <!-- Fullscreen Window -->
+    <div class="inner-window">
+      <div class="win-titlebar">
+        <span class="title">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span data-i18n="win.privacy">Privaatsuspoliitika — Noway</span>
+        </span>
+        <div class="window-controls">
+          <button title="Minimize">_</button>
+          <button title="Maximize">&#9633;</button>
+          <button title="Close" onclick="navigateTo('desktop.html')">&#10005;</button>
+        </div>
+      </div>
+      <div class="win-menubar">
+        <button onclick="navigateTo('desktop.html')" data-i18n="mb.back">&#8592; Tagasi</button>
+        <button data-i18n="mb.file">Fail</button>
+        <button data-i18n="mb.view">Vaade</button>
+        <button data-i18n="mb.help">Abi</button>
+      </div>
+      <div class="win-body">
+        <div class="inner-content">
+
+          <a href="desktop.html" class="back-btn" onclick="event.preventDefault(); navigateTo('desktop.html');" data-i18n="btn.backDesktop">&#8592; Tagasi töölauale</a>
+
+          <h1>
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span data-i18n="pr.h1">Privaatsuspoliitika</span>
+          </h1>
+
+          <p data-i18n="pr.intro">See leht selgitab lihtsalt ja ausalt, milliseid andmeid Noway veebileht kasutab ja mida me nendega teeme. Lühidalt: peaaegu mitte midagi.</p>
+
+          <h2 data-i18n="pr.col.h">Milliseid andmeid me kogume</h2>
+          <p data-i18n="pr.col.p">See on staatiline veebileht — meil ei ole kasutajakontosid, andmebaasi ega serverit, mis sinu tegevust salvestaks. Lehte sirvides ei kogu me sinu kohta mingeid andmeid.</p>
+
+          <h2 data-i18n="pr.form.h">Kontaktivorm</h2>
+          <p data-i18n="pr.form.p">Kui täidad meie kontaktivormi, avaneb sinu enda e-posti rakendus juba valmis kirjaga — andmed ei liigu läbi ühegi meie serveri. Sinu nime, e-posti aadressi ja sõnumit, mille meile saadad, kasutame ainult sulle vastamiseks. Me ei jaga neid kellegagi ega kasuta turunduseks.</p>
+
+          <h2 data-i18n="pr.cook.h">Küpsised ja analüütika</h2>
+          <p data-i18n="pr.cook.p">Kasutame ainult brauseri kohalikku salvestust (localStorage), et jätta meelde sinu keelevalik ja küpsiste teate valik. Jälgimisküpsiseid, reklaamiküpsiseid ega analüütikat meil ei ole.</p>
+
+          <h2 data-i18n="pr.third.h">Kolmandad osapooled</h2>
+          <p data-i18n-html="pr.third.p">Leht laadib kirjatüübid Google Fontsi kaudu. See tähendab, et sinu brauser teeb päringu Google'i serverisse, mis näeb sinu IP-aadressi. Rohkem infot leiad <strong>Google'i privaatsuspoliitikast</strong>. Muid kolmandate osapoolte teenuseid me ei kasuta.</p>
+
+          <h2 data-i18n="pr.rights.h">Sinu õigused</h2>
+          <p data-i18n="pr.rights.p">Kui oled meile kirjutanud ja soovid, et kustutaksime sinu kirja ja kontaktandmed, anna lihtsalt märku — teeme seda esimesel võimalusel.</p>
+
+          <h2 data-i18n="pr.q.h">Küsimused</h2>
+          <p data-i18n-html="pr.q.p">Kui sul on privaatsuse kohta küsimusi, kirjuta meile: <strong>hello@noway.com</strong></p>
+
+          <p><em data-i18n="pr.upd">Viimati uuendatud: juuli 2026</em></p>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Start menu -->
+    <nav class="start-menu" id="startMenu" aria-label="Start menüü">
+      <div class="start-menu-header">
+        <img src="IMAGES/noway_big_logo0.png" alt="">
+        <span>Noway</span>
+      </div>
+      <div class="start-menu-body">
+        <a class="start-menu-item" href="desktop.html" onclick="event.preventDefault(); navigateTo('desktop.html');">
+          <img src="IMAGES/Folder Open.png" alt="">
+          <span data-i18n="menu.desktop">Töölaud</span>
+        </a>
+        <a class="start-menu-item" href="trend.html" onclick="event.preventDefault(); navigateTo('trend.html');">
+          <img src="IMAGES/Game Controller.png" alt="">
+          <span data-i18n="menu.services">Teenused</span>
+        </a>
+        <a class="start-menu-item" href="about.html" onclick="event.preventDefault(); navigateTo('about.html');">
+          <img src="IMAGES/Phone.png" alt="">
+          <span data-i18n="menu.contactAbout">Kontakt ja meist</span>
+        </a>
+        <div class="start-menu-sep"></div>
+        <a class="start-menu-item" href="privacy.html" onclick="event.preventDefault(); navigateTo('privacy.html');">
+          <svg class="menu-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span data-i18n="menu.privacy">Privaatsuspoliitika</span>
+        </a>
+      </div>
+      <div class="start-menu-footer">
+        <button class="shutdown-item" onclick="navigateTo('index.html')">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+          <span data-i18n="menu.shutdown">Lülita arvuti välja</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- XP taskbar -->
+    <div class="taskbar">
+      <button class="start-btn" id="startBtn" aria-haspopup="true" aria-expanded="false" aria-controls="startMenu">
+        <span class="xp-flag xp-flag--small" aria-hidden="true">
+          <span class="xp-tl"></span><span class="xp-tr"></span><span class="xp-bl"></span><span class="xp-br"></span>
+        </span>
+        start
+      </button>
+      <div class="taskbar-tabs">
+        <button class="task-tab active">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span data-i18n="tab.privacy">Privaatsuspoliitika</span>
+        </button>
+      </div>
+      <div class="taskbar-tray">
+        <button class="lang-switch" title="Keel / Language">ET</button>
+        <span id="taskbarClock">00:00</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Cookie notice -->
+  <div class="win-window cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="ckTitle">
+    <div class="win-titlebar">
+      <span class="title" id="ckTitle">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/></svg>
+        <span data-i18n="ck.title">Küpsised</span>
+      </span>
+      <div class="window-controls">
+        <button title="Close" id="cookieClose">&#10005;</button>
+      </div>
+    </div>
+    <div class="cookie-body">
+      <p data-i18n="ck.text">See leht kasutab brauseri kohalikku salvestust ainult selleks, et jätta meelde sinu keelevalik ja see teade. Jälgimisküpsiseid meil pole.</p>
+      <div class="cookie-actions">
+        <button class="win98-btn" id="cookieDecline" data-i18n="ck.decline">Keeldun</button>
+        <button class="win98-btn" id="cookieAccept" data-i18n="ck.accept">Nõustun</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-transition" id="pageTransition"></div>
+  <script src="script.js"></script>
+</body>
+</html>

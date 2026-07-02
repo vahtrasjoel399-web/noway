@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noway - About Us</title>
+  <meta name="description" content="Noway — kes me oleme ja kuidas meiega ühendust saada.">
+  <title data-i18n="doc.about">Noway — Meist</title>
+  <link rel="icon" type="image/png" href="IMAGES/noway_big_logo0.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,7 +18,10 @@
     <!-- Fullscreen Window -->
     <div class="inner-window">
       <div class="win-titlebar">
-        <span class="title">&#128196; About Us - Noway</span>
+        <span class="title">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span data-i18n="win.about">Meist ja kontakt — Noway</span>
+        </span>
         <div class="window-controls">
           <button title="Minimize">_</button>
           <button title="Maximize">&#9633;</button>
@@ -24,73 +29,159 @@
         </div>
       </div>
       <div class="win-menubar">
-        <button onclick="navigateTo('desktop.html')">&#8592; Back</button>
-        <button>File</button>
-        <button>View</button>
-        <button>Help</button>
+        <button onclick="navigateTo('desktop.html')" data-i18n="mb.back">&#8592; Tagasi</button>
+        <button data-i18n="mb.file">Fail</button>
+        <button data-i18n="mb.view">Vaade</button>
+        <button data-i18n="mb.help">Abi</button>
       </div>
       <div class="win-body">
         <div class="inner-content">
 
-          <a href="desktop.html" class="back-btn" onclick="event.preventDefault(); navigateTo('desktop.html');">&#8592; Back to Desktop</a>
+          <a href="desktop.html" class="back-btn" onclick="event.preventDefault(); navigateTo('desktop.html');" data-i18n="btn.backDesktop">&#8592; Tagasi töölauale</a>
 
-          <h1>&#128196; About Noway</h1>
+          <h1>
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span data-i18n="ab.h1">Meist</span>
+          </h1>
 
-          <p>Noway is a forward-thinking technology company dedicated to transforming ideas into reality. Founded with the mission to bridge the gap between innovation and everyday solutions, we empower businesses worldwide with modern tools and strategies.</p>
+          <p data-i18n="ab.p1">Noway on Eesti loovstuudio, mis usub, et hea disain ei pea olema igav. Meie käe all valmivad veebilehed, brändid ja videod, mis jäävad meelde — täpselt nagu see leht, millel praegu oled.</p>
 
-          <h2>Our Mission</h2>
-          <p>To deliver exceptional technology solutions that make a real difference. We believe in building products that are reliable, intuitive, and designed to grow alongside our clients.</p>
+          <p data-i18n="ab.p2">Alustasime lihtsast mõttest: teha asju nii, nagu me ise tahaksime neid näha. Sellest on saanud stuudio, kus iga projekt algab kuulamisest ja lõpeb tulemusega, mille üle oleme ise uhked.</p>
 
-          <h2>Our Values</h2>
+          <h2 data-i18n="val.h2">Meie põhimõtted</h2>
           <div class="card-grid">
             <div class="card">
-              <div class="card-icon">&#128161;</div>
-              <h3>Innovation</h3>
-              <p>We push boundaries and explore new possibilities in everything we do.</p>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+              </div>
+              <h3 data-i18n="val.1.h">Julgus</h3>
+              <p data-i18n="val.1.p">Teeme asju teistmoodi, kui see aitab sinu brändil silma paista.</p>
             </div>
             <div class="card">
-              <div class="card-icon">&#129309;</div>
-              <h3>Trust</h3>
-              <p>Transparency and honesty are the foundation of every relationship we build.</p>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h3 data-i18n="val.2.h">Otsekohesus</h3>
+              <p data-i18n="val.2.p">Suhtled otse tegijatega — ütleme ausalt, mis töötab ja mis mitte.</p>
             </div>
             <div class="card">
-              <div class="card-icon">&#127919;</div>
-              <h3>Excellence</h3>
-              <p>We hold ourselves to the highest standards of quality and craftsmanship.</p>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              </div>
+              <h3 data-i18n="val.3.h">Täpsus</h3>
+              <p data-i18n="val.3.p">Detailid loevad — viimistleme iga piksli, enne kui töö sinu ette jõuab.</p>
             </div>
           </div>
 
-          <h2>Our Team</h2>
-          <div class="team-grid">
-            <div class="team-member">
-              <div class="avatar">&#128100;</div>
-              <h3>Alex Morgan</h3>
-              <p>CEO &amp; Founder</p>
-            </div>
-            <div class="team-member">
-              <div class="avatar">&#128100;</div>
-              <h3>Jordan Lee</h3>
-              <p>CTO</p>
-            </div>
-            <div class="team-member">
-              <div class="avatar">&#128100;</div>
-              <h3>Sam Rivera</h3>
-              <p>Head of Design</p>
-            </div>
-            <div class="team-member">
-              <div class="avatar">&#128100;</div>
-              <h3>Taylor Kim</h3>
-              <p>Lead Developer</p>
-            </div>
-          </div>
+          <h2 data-i18n="how.h2">Kuidas me töötame</h2>
+          <p data-i18n-html="how.1"><strong>1. Kuulame.</strong> Räägime läbi, mida sa päriselt vajad — mitte ainult seda, mida küsid.</p>
+          <p data-i18n-html="how.2"><strong>2. Pakume välja.</strong> Saad konkreetse nägemuse ja plaani, mitte umbmäärase lubaduse.</p>
+          <p data-i18n-html="how.3"><strong>3. Viime lõpuni.</strong> Disain, teostus ja viimistlus ühe meeskonna käes, kuni tulemus on valmis.</p>
 
-          <h2>Contact</h2>
-          <p>Have questions or want to work with us? Reach out at <strong>hello@noway.com</strong> and we'll get back to you.</p>
+          <h2 id="kontakt" data-i18n="ct.h2">Kontakt</h2>
+          <div class="contact-block">
+            <p data-i18n-html="ct.intro">teeme koostööd? Täida vorm ja vastame esimesel võimalusel. Või kirjuta otse: <strong>hello@noway.com</strong></p>
+            <form class="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="aNimi" data-i18n="form.name">Nimi</label>
+                  <input id="aNimi" name="nimi" type="text" autocomplete="name" required>
+                </div>
+                <div class="form-field">
+                  <label for="aEpost" data-i18n="form.email">E-post</label>
+                  <input id="aEpost" name="epost" type="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="aSonum" data-i18n="form.message">Sõnum</label>
+                <textarea id="aSonum" name="sonum" rows="5" required></textarea>
+              </div>
+              <button class="win98-btn" type="submit">
+                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                <span data-i18n="form.send">saada</span>
+              </button>
+              <p class="form-status" hidden></p>
+            </form>
+            <p class="privacy-note" data-i18n-html="ct.privnote">Sinu andmeid kasutame ainult sulle vastamiseks — <a href="privacy.html" onclick="event.preventDefault(); navigateTo('privacy.html');">privaatsuspoliitika</a>.</p>
+          </div>
 
         </div>
       </div>
     </div>
 
+    <!-- Start menu -->
+    <nav class="start-menu" id="startMenu" aria-label="Start menüü">
+      <div class="start-menu-header">
+        <img src="IMAGES/noway_big_logo0.png" alt="">
+        <span>Noway</span>
+      </div>
+      <div class="start-menu-body">
+        <a class="start-menu-item" href="desktop.html" onclick="event.preventDefault(); navigateTo('desktop.html');">
+          <img src="IMAGES/Folder Open.png" alt="">
+          <span data-i18n="menu.desktop">Töölaud</span>
+        </a>
+        <a class="start-menu-item" href="trend.html" onclick="event.preventDefault(); navigateTo('trend.html');">
+          <img src="IMAGES/Game Controller.png" alt="">
+          <span data-i18n="menu.services">Teenused</span>
+        </a>
+        <a class="start-menu-item" href="about.html" onclick="event.preventDefault(); navigateTo('about.html');">
+          <img src="IMAGES/Phone.png" alt="">
+          <span data-i18n="menu.contactAbout">Kontakt ja meist</span>
+        </a>
+        <div class="start-menu-sep"></div>
+        <a class="start-menu-item" href="privacy.html" onclick="event.preventDefault(); navigateTo('privacy.html');">
+          <svg class="menu-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span data-i18n="menu.privacy">Privaatsuspoliitika</span>
+        </a>
+      </div>
+      <div class="start-menu-footer">
+        <button class="shutdown-item" onclick="navigateTo('index.html')">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+          <span data-i18n="menu.shutdown">Lülita arvuti välja</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- XP taskbar -->
+    <div class="taskbar">
+      <button class="start-btn" id="startBtn" aria-haspopup="true" aria-expanded="false" aria-controls="startMenu">
+        <span class="xp-flag xp-flag--small" aria-hidden="true">
+          <span class="xp-tl"></span><span class="xp-tr"></span><span class="xp-bl"></span><span class="xp-br"></span>
+        </span>
+        start
+      </button>
+      <div class="taskbar-tabs">
+        <button class="task-tab active">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span data-i18n="tab.about">Meist ja kontakt</span>
+        </button>
+      </div>
+      <div class="taskbar-tray">
+        <button class="lang-switch" title="Keel / Language">ET</button>
+        <span id="taskbarClock">00:00</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Cookie notice -->
+  <div class="win-window cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="ckTitle">
+    <div class="win-titlebar">
+      <span class="title" id="ckTitle">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/></svg>
+        <span data-i18n="ck.title">Küpsised</span>
+      </span>
+      <div class="window-controls">
+        <button title="Close" id="cookieClose">&#10005;</button>
+      </div>
+    </div>
+    <div class="cookie-body">
+      <p data-i18n="ck.text">See leht kasutab brauseri kohalikku salvestust ainult selleks, et jätta meelde sinu keelevalik ja see teade. Jälgimisküpsiseid meil pole.</p>
+      <div class="cookie-actions">
+        <button class="win98-btn" id="cookieDecline" data-i18n="ck.decline">Keeldun</button>
+        <button class="win98-btn" id="cookieAccept" data-i18n="ck.accept">Nõustun</button>
+      </div>
+    </div>
   </div>
 
   <div class="page-transition" id="pageTransition"></div>

@@ -1,59 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noway</title>
+  <meta name="description" content="Noway — loovstuudio. Veebidisain, bränding ja video. Klõpsa ekraanil ja astu sisse.">
+  <title data-i18n="doc.index">Noway</title>
+  <link rel="icon" type="image/png" href="IMAGES/noway_big_logo0.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="landing-page" id="landingPage">
 
+    <button class="lang-switch lang-switch--landing" title="Keel / Language">ET</button>
+
     <div class="computer-container" id="computerContainer">
       <img src="IMAGES/Logo on Screen 1.png" alt="Noway" class="landing-bg" id="computerImg">
 
+      <!-- Light cast by the screen: monitor halo + desk spill -->
+      <div class="pc-glow" aria-hidden="true"></div>
+      <div class="pc-floor-glow" aria-hidden="true"></div>
+
       <!-- Idle video loops; click triggers Trim 1 then zoom -->
-      <div class="screen-overlay" id="screenOverlay">
+      <div class="screen-overlay" id="screenOverlay" role="button" tabindex="0" aria-label="Käivita arvuti — klõpsa ekraanil" data-i18n-aria="aria.powerOn">
         <video class="screen-video" id="screenVideo" autoplay muted loop playsinline poster="IMAGES/nowayekraan.jpg">
-          <source src="../noway%20web/uued%20asjad/nw_lcd_screen%20-%20Trim.mp4" type="video/mp4">
+          <source src="IMAGES/nw_lcd_screen-trim.mp4" type="video/mp4">
         </video>
         <!-- Preloaded: shown on click -->
         <video class="screen-video screen-video-hidden" id="screenVideoClick" muted playsinline preload="auto">
-          <source src="../noway%20web/uued%20asjad/nw_lcd_screen%20-%20Trim%201.mp4" type="video/mp4">
+          <source src="IMAGES/nw_lcd_screen-trim1.mp4" type="video/mp4">
         </video>
+        <!-- CRT vignette -->
+        <div class="crt-fx" aria-hidden="true"></div>
+        <!-- CRT power-on animation (plays once on load) -->
+        <div class="screen-power" aria-hidden="true"></div>
       </div>
     </div>
 
-    <p class="hint-text" id="hintText">&#9654; click the screen</p>
+    <p class="hint-text" id="hintText" data-i18n="hint">&#9654; klõpsa ekraanil</p>
 
   </div>
 
-  <!-- Boot Sequence -->
+  <!-- Boot Sequence: Noway logo + SVG loader -->
   <div class="boot-overlay" id="bootOverlay">
 
-    <!-- Windows XP loading screen -->
-    <div id="bootXp">
-      <div class="xp-logo">
-        <div class="xp-flag">
-          <div class="xp-tl"></div>
-          <div class="xp-tr"></div>
-          <div class="xp-bl"></div>
-          <div class="xp-br"></div>
-        </div>
-        <div class="xp-wordmark">
-          <span class="xp-microsoft">Microsoft</span>
-          <span class="xp-name">Windows<em>XP</em></span>
-        </div>
-      </div>
-      <div class="xp-bar-track">
-        <div class="xp-pill"></div>
-        <div class="xp-pill"></div>
-        <div class="xp-pill"></div>
-      </div>
-      <span class="xp-copy">Copyright &copy; 2026 Noway Technologies. All rights reserved.</span>
+    <div id="bootScreen">
+      <img src="IMAGES/noway_big_logo0.png" alt="Noway" class="boot-logo">
+
+      <svg class="boot-loader" viewBox="0 0 240 16" aria-hidden="true">
+        <defs>
+          <linearGradient id="pillGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#1668cc"/>
+            <stop offset="0.5" stop-color="#6db3ff"/>
+            <stop offset="1" stop-color="#1668cc"/>
+          </linearGradient>
+          <clipPath id="loaderClip">
+            <rect x="1" y="1" width="238" height="14" rx="7"/>
+          </clipPath>
+        </defs>
+        <rect x="0.5" y="0.5" width="239" height="15" rx="7.75" fill="#0d0d0d" stroke="#4a4a4a"/>
+        <g clip-path="url(#loaderClip)">
+          <rect class="pill"        x="-40" y="3" width="34" height="10" rx="5" fill="url(#pillGrad)"/>
+          <rect class="pill pill-2" x="-40" y="3" width="34" height="10" rx="5" fill="url(#pillGrad)"/>
+          <rect class="pill pill-3" x="-40" y="3" width="34" height="10" rx="5" fill="url(#pillGrad)"/>
+        </g>
+      </svg>
+
+      <span class="xp-copy" data-i18n="boot.copy">&copy; 2026 Noway. K&otilde;ik &otilde;igused kaitstud.</span>
     </div>
 
+  </div>
+
+  <!-- Cookie notice -->
+  <div class="win-window cookie-banner cookie-banner--landing" id="cookieBanner" role="dialog" aria-labelledby="ckTitle">
+    <div class="win-titlebar">
+      <span class="title" id="ckTitle">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/></svg>
+        <span data-i18n="ck.title">Küpsised</span>
+      </span>
+      <div class="window-controls">
+        <button title="Close" id="cookieClose">&#10005;</button>
+      </div>
+    </div>
+    <div class="cookie-body">
+      <p data-i18n="ck.text">See leht kasutab brauseri kohalikku salvestust ainult selleks, et jätta meelde sinu keelevalik ja see teade. Jälgimisküpsiseid meil pole.</p>
+      <div class="cookie-actions">
+        <button class="win98-btn" id="cookieDecline" data-i18n="ck.decline">Keeldun</button>
+        <button class="win98-btn" id="cookieAccept" data-i18n="ck.accept">Nõustun</button>
+      </div>
+    </div>
   </div>
 
   <!-- Page Transition -->

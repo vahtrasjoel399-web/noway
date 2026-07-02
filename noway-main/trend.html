@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noway - Trend</title>
+  <meta name="description" content="Noway teenused ja portfoolio — veebidisain, bränding, video ja montaaž.">
+  <title data-i18n="doc.services">Noway — Teenused</title>
+  <link rel="icon" type="image/png" href="IMAGES/noway_big_logo0.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,7 +18,10 @@
     <!-- Fullscreen Window -->
     <div class="inner-window">
       <div class="win-titlebar">
-        <span class="title">&#128200; Trend - Noway Products &amp; Services</span>
+        <span class="title">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          <span data-i18n="win.services">Teenused ja portfoolio — Noway</span>
+        </span>
         <div class="window-controls">
           <button title="Minimize">_</button>
           <button title="Maximize">&#9633;</button>
@@ -24,60 +29,175 @@
         </div>
       </div>
       <div class="win-menubar">
-        <button onclick="navigateTo('desktop.html')">&#8592; Back</button>
-        <button>File</button>
-        <button>View</button>
-        <button>Help</button>
+        <button onclick="navigateTo('desktop.html')" data-i18n="mb.back">&#8592; Tagasi</button>
+        <button data-i18n="mb.file">Fail</button>
+        <button data-i18n="mb.view">Vaade</button>
+        <button data-i18n="mb.help">Abi</button>
       </div>
       <div class="win-body">
         <div class="inner-content">
 
-          <a href="desktop.html" class="back-btn" onclick="event.preventDefault(); navigateTo('desktop.html');">&#8592; Back to Desktop</a>
+          <a href="desktop.html" class="back-btn" onclick="event.preventDefault(); navigateTo('desktop.html');" data-i18n="btn.backDesktop">&#8592; Tagasi töölauale</a>
 
-          <h1>&#128200; Our Products &amp; Services</h1>
+          <h1>
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            <span data-i18n="svc.h1">Teenused</span>
+          </h1>
 
-          <p>Noway delivers cutting-edge solutions designed to empower businesses and individuals. Explore our product lines below.</p>
+          <p data-i18n="svc.intro">Noway aitab sinu brändil paista silma. Disainime ja ehitame veebilehti, loome visuaalset identiteeti ning toodame videosisu — algusest lõpuni, ühe meeskonnaga.</p>
 
           <div class="card-grid">
             <div class="card">
-              <div class="card-icon">&#128187;</div>
-              <h3>Digital Solutions</h3>
-              <p>Custom software development, web applications, and digital transformation consulting.</p>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <h3 data-i18n="svc.web.h">Veebidisain</h3>
+              <p data-i18n="svc.web.p">Kodulehed ja maandumislehed, mis näevad head välja igal ekraanil ja toovad kliente.</p>
             </div>
             <div class="card">
-              <div class="card-icon">&#128202;</div>
-              <h3>Analytics Platform</h3>
-              <p>Real-time data analytics and business intelligence dashboards for smarter decisions.</p>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+              </div>
+              <h3 data-i18n="svc.brand.h">Bränding ja logo</h3>
+              <p data-i18n="svc.brand.p">Logo, värvid ja visuaalne keel, mis teevad sinu brändi äratuntavaks.</p>
             </div>
             <div class="card">
-              <div class="card-icon">&#9729;&#65039;</div>
-              <h3>Cloud Services</h3>
-              <p>Scalable cloud infrastructure, hosting, and managed services for growing businesses.</p>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+              </div>
+              <h3 data-i18n="svc.video.h">Video ja montaaž</h3>
+              <p data-i18n="svc.video.p">Reklaamklipid, tootevideod ja montaaž sotsiaalmeedia jaoks.</p>
             </div>
             <div class="card">
-              <div class="card-icon">&#128272;</div>
-              <h3>Cybersecurity</h3>
-              <p>Enterprise-grade security audits, monitoring, and incident response solutions.</p>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              </div>
+              <h3 data-i18n="svc.social.h">Sotsiaalmeedia</h3>
+              <p data-i18n="svc.social.p">Postituste kujundused ja visuaalid, mis hoiavad sinu kanalid ühtses stiilis.</p>
             </div>
             <div class="card">
-              <div class="card-icon">&#128241;</div>
-              <h3>Mobile Apps</h3>
-              <p>Cross-platform mobile application design and development for iOS and Android.</p>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+              </div>
+              <h3 data-i18n="svc.shop.h">E-pood</h3>
+              <p data-i18n="svc.shop.p">Lihtsalt hallatavad e-poed, kus ostmine on kiire ja mugav.</p>
             </div>
             <div class="card">
-              <div class="card-icon">&#129302;</div>
-              <h3>AI &amp; Automation</h3>
-              <p>Machine learning models, process automation, and intelligent workflow systems.</p>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <h3 data-i18n="svc.support.h">Hooldus ja tugi</h3>
+              <p data-i18n="svc.support.p">Hoiame sinu lehe värske, kiire ja töökorras ka pärast avaldamist.</p>
             </div>
           </div>
 
-          <h2>Why Choose Noway?</h2>
-          <p>With years of industry experience, Noway combines innovation with reliability. Our team of experts works closely with each client to deliver tailored solutions that drive growth and efficiency.</p>
+          <h2 data-i18n="pf.h2">Portfoolio</h2>
+          <p data-i18n="pf.intro">Valik meie enda kujundatud vaateid — arvuti- ja mobiilivaated, algusest lõpuni meie disainitud.</p>
+
+          <div class="portfolio-grid">
+            <figure class="portfolio-item">
+              <span class="shot"><img src="IMAGES/nw_web_comp_home.jpg" alt="Noway veebilehe avaleht arvutivaates"></span>
+              <figcaption>
+                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                nw_web_home.jpg
+              </figcaption>
+            </figure>
+            <figure class="portfolio-item">
+              <span class="shot"><img src="IMAGES/nw_web_comp_menu.jpg" alt="Noway veebilehe menüüvaade"></span>
+              <figcaption>
+                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                nw_web_menu.jpg
+              </figcaption>
+            </figure>
+            <figure class="portfolio-item">
+              <span class="shot"><img src="IMAGES/nw_web_naide.jpg" alt="Noway veebilehe kujundusnäide"></span>
+              <figcaption>
+                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                nw_web_naide.jpg
+              </figcaption>
+            </figure>
+          </div>
+
+          <h2 data-i18n="why.h2">Miks Noway?</h2>
+          <p data-i18n="why.p">Meiega suhtled otse tegijatega — ilma vahekihtideta. Iga projekt saab isikliku lähenemise: kuulame, pakume välja ja viime lõpuni. Ja nagu näed, ei karda me teha asju teistmoodi.</p>
 
         </div>
       </div>
     </div>
 
+    <!-- Start menu -->
+    <nav class="start-menu" id="startMenu" aria-label="Start menüü">
+      <div class="start-menu-header">
+        <img src="IMAGES/noway_big_logo0.png" alt="">
+        <span>Noway</span>
+      </div>
+      <div class="start-menu-body">
+        <a class="start-menu-item" href="desktop.html" onclick="event.preventDefault(); navigateTo('desktop.html');">
+          <img src="IMAGES/Folder Open.png" alt="">
+          <span data-i18n="menu.desktop">Töölaud</span>
+        </a>
+        <a class="start-menu-item" href="trend.html" onclick="event.preventDefault(); navigateTo('trend.html');">
+          <img src="IMAGES/Game Controller.png" alt="">
+          <span data-i18n="menu.services">Teenused</span>
+        </a>
+        <a class="start-menu-item" href="about.html" onclick="event.preventDefault(); navigateTo('about.html');">
+          <img src="IMAGES/Phone.png" alt="">
+          <span data-i18n="menu.contactAbout">Kontakt ja meist</span>
+        </a>
+        <div class="start-menu-sep"></div>
+        <a class="start-menu-item" href="privacy.html" onclick="event.preventDefault(); navigateTo('privacy.html');">
+          <svg class="menu-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span data-i18n="menu.privacy">Privaatsuspoliitika</span>
+        </a>
+      </div>
+      <div class="start-menu-footer">
+        <button class="shutdown-item" onclick="navigateTo('index.html')">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+          <span data-i18n="menu.shutdown">Lülita arvuti välja</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- XP taskbar -->
+    <div class="taskbar">
+      <button class="start-btn" id="startBtn" aria-haspopup="true" aria-expanded="false" aria-controls="startMenu">
+        <span class="xp-flag xp-flag--small" aria-hidden="true">
+          <span class="xp-tl"></span><span class="xp-tr"></span><span class="xp-bl"></span><span class="xp-br"></span>
+        </span>
+        start
+      </button>
+      <div class="taskbar-tabs">
+        <button class="task-tab active">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          <span data-i18n="tab.services">Teenused ja portfoolio</span>
+        </button>
+      </div>
+      <div class="taskbar-tray">
+        <button class="lang-switch" title="Keel / Language">ET</button>
+        <span id="taskbarClock">00:00</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Cookie notice -->
+  <div class="win-window cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="ckTitle">
+    <div class="win-titlebar">
+      <span class="title" id="ckTitle">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/></svg>
+        <span data-i18n="ck.title">Küpsised</span>
+      </span>
+      <div class="window-controls">
+        <button title="Close" id="cookieClose">&#10005;</button>
+      </div>
+    </div>
+    <div class="cookie-body">
+      <p data-i18n="ck.text">See leht kasutab brauseri kohalikku salvestust ainult selleks, et jätta meelde sinu keelevalik ja see teade. Jälgimisküpsiseid meil pole.</p>
+      <div class="cookie-actions">
+        <button class="win98-btn" id="cookieDecline" data-i18n="ck.decline">Keeldun</button>
+        <button class="win98-btn" id="cookieAccept" data-i18n="ck.accept">Nõustun</button>
+      </div>
+    </div>
   </div>
 
   <div class="page-transition" id="pageTransition"></div>
