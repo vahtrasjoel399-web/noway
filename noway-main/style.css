@@ -71,6 +71,7 @@ button {
 .landing-page {
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   background: #000;
   position: relative;
   overflow: hidden;
@@ -408,6 +409,7 @@ button {
 .desktop-page {
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   position: relative;
   overflow: hidden;
   animation: desktopFade 0.9s ease;
@@ -646,11 +648,6 @@ button {
 .cookie-banner.show {
   display: flex;
   animation: ckIn 0.35s ease;
-}
-
-/* landing page has no taskbar */
-.cookie-banner--landing {
-  bottom: 14px;
 }
 
 @keyframes ckIn {
@@ -1066,6 +1063,7 @@ button {
 .inner-page {
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -1521,57 +1519,92 @@ a, button {
   }
 }
 
-/* ── Large phone / small tablet (≤ 600px) ── */
+/* ── Large phone / small tablet (≤ 600px) ──
+   The "desktop" is reflowed into a balanced portrait layout:
+   a single centered video window as the hero, a neat icon row
+   pinned above the taskbar, and no floating contact popup
+   (the contact form still lives on the About page). */
 @media (max-width: 600px) {
   .desktop-logo {
-    width: 90px;
-    top: 2%;
-    left: 2%;
+    width: 88px;
+    top: 2.5%;
+    left: 4%;
+  }
+
+  /* Hero video window — centered, near the top, comfortably wide */
+  .video-win {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 92%;
+    max-width: 460px;
+    min-width: 0;
+    top: 14%;
+  }
+
+  .win-video-body video {
+    max-height: 40vh;
+  }
+
+  /* Bigger touch targets for window buttons */
+  .win-titlebar .window-controls button {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+
+  /* Icon row: 4 across, evenly spread, sitting above the taskbar */
+  .desktop-icons-row {
+    padding: 0 3%;
+    bottom: calc(var(--taskbar-h) + 6vh);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px 2px;
+  }
+
+  .desktop-icon {
+    flex: 0 0 22%;
+    padding: 8px 4px;
+    min-height: 44px;
   }
 
   .desktop-icon .icon-img {
-    width: 68px;
-    height: 68px;
+    width: 62px;
+    height: 62px;
   }
 
   .desktop-icon .icon-label {
     font-size: 12px;
   }
 
-  .desktop-icons-row {
-    padding: 0 2%;
-    bottom: calc(var(--taskbar-h) + 8vh);
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-
-  .video-win {
-    left: 3%;
-    width: 84%;
-    top: 12%;
-  }
-
-  .win-video-body video {
-    max-height: 38vh;
-  }
-
+  /* No floating contact popup on phones — reachable via the Contact icon */
   .contact-win,
   .task-tab[data-window="contactWindow"] {
     display: none;
   }
 
+  /* Landing hint wraps instead of overflowing */
   .hint-text {
     white-space: normal;
     text-align: center;
     padding: 0 16px;
   }
 
+  /* Enlarge the CRT so the tap target is comfortable in portrait:
+     let the photo run a little wider than the viewport (sides crop) */
+  .landing-bg {
+    max-width: 132vw;
+    max-height: 72vh;
+  }
+
+  /* Inner pages: give the window edge-to-edge room */
   .inner-window {
     margin: 8px 8px calc(var(--taskbar-h) + 8px);
   }
 
   .inner-content {
     padding: 16px 14px 24px;
+    font-size: 14px;
   }
 
   .inner-content h1 {
@@ -1613,26 +1646,21 @@ a, button {
   }
 
   .desktop-icon {
-    padding: 6px 4px;
+    flex: 0 0 23%;
+    padding: 6px 2px;
   }
 
   .desktop-icon .icon-img {
-    width: 56px;
-    height: 56px;
+    width: 54px;
+    height: 54px;
   }
 
   .desktop-icon .icon-label {
     font-size: 11px;
   }
 
-  .video-win {
-    left: 2%;
-    width: 92%;
-    top: 10%;
-  }
-
   .win-video-body video {
-    max-height: 32vh;
+    max-height: 34vh;
   }
 
   .inner-content .card-grid {
@@ -1645,5 +1673,52 @@ a, button {
 
   .task-tab span {
     display: none;
+  }
+}
+
+/* ── Phone in landscape (short viewport) ──
+   Very little vertical room — shrink the hero and lift the icons
+   so nothing hides behind the taskbar. */
+@media (max-height: 480px) and (orientation: landscape) {
+  .landing-bg {
+    max-width: 100vw;
+    max-height: 82vh;
+  }
+
+  .video-win {
+    top: 6%;
+    width: 56%;
+    max-width: 420px;
+  }
+
+  .win-video-body video {
+    max-height: 52vh;
+  }
+
+  .desktop-icons-row {
+    bottom: calc(var(--taskbar-h) + 2vh);
+    padding: 0 4%;
+  }
+
+  .desktop-icon .icon-img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .desktop-icon .icon-label {
+    font-size: 11px;
+  }
+
+  /* Bring the contact popup back — there is horizontal room in landscape */
+  .contact-win {
+    display: flex;
+    top: 8%;
+    right: 3%;
+    width: 34%;
+    min-width: 200px;
+  }
+
+  .task-tab[data-window="contactWindow"] {
+    display: flex;
   }
 }
