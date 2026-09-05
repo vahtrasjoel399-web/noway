@@ -2,6 +2,7 @@
 var I18N = {
   et: {
     'doc.index': 'Noway',
+    'studio': 'Sõltumatu loovstuudio · Eesti',
     'doc.desktop': 'Noway — Töölaud',
     'doc.services': 'Noway — Teenused',
     'doc.about': 'Noway — Meist',
@@ -106,6 +107,7 @@ var I18N = {
   },
   en: {
     'doc.index': 'Noway',
+    'studio': 'Independent creative studio · Estonia',
     'doc.desktop': 'Noway — Desktop',
     'doc.services': 'Noway — Services',
     'doc.about': 'Noway — About',
@@ -366,6 +368,7 @@ window.addEventListener('DOMContentLoaded', function () {
       var epost = form.querySelector('[name="epost"]');
       var sonum = form.querySelector('[name="sonum"]');
       var status = form.querySelector('.form-status');
+      form.querySelectorAll('[aria-invalid]').forEach(function (field) { field.removeAttribute('aria-invalid'); });
 
       function fail(field, msg) {
         if (status) {
@@ -373,11 +376,12 @@ window.addEventListener('DOMContentLoaded', function () {
           status.style.color = '#a40000';
           status.hidden = false;
         }
+        field.setAttribute('aria-invalid', 'true');
         field.focus();
       }
 
       if (!nimi.value.trim())  return fail(nimi, t('err.name'));
-      if (!epost.value.trim() || epost.value.indexOf('@') < 1) {
+      if (!epost.value.trim() || !epost.validity.valid) {
         return fail(epost, t('err.email'));
       }
       if (!sonum.value.trim()) return fail(sonum, t('err.msg'));
@@ -409,6 +413,8 @@ window.addEventListener('DOMContentLoaded', function () {
   function powerOn() {
     if (started) return;
     started = true;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { window.location.href = 'desktop.html'; return; }
+    document.querySelector('.landing-actions').classList.add('is-booting');
 
     var computerContainer = document.getElementById('computerContainer');
     var hintText          = document.getElementById('hintText');
@@ -454,13 +460,13 @@ window.addEventListener('DOMContentLoaded', function () {
 
         setTimeout(function () {
           navigateTo('desktop.html');
-        }, 2100);
+        }, 950);
       }, 1000);
     }
 
     // When Trim 1 finishes — push in. Fallbacks: play() rejected
     // (autoplay blocked) or 'ended' never firing on some phones.
-    var safetyTimer = setTimeout(startZoom, 6000);
+    var safetyTimer = setTimeout(startZoom, 2200);
     var playPromise = screenVideoClick.play();
     screenVideoClick.addEventListener('ended', startZoom);
     if (playPromise && playPromise.catch) {
@@ -530,15 +536,16 @@ function shutDown() {
 
   var windows = Array.prototype.slice.call(desktop.querySelectorAll('.win-window'));
   var tabs = Array.prototype.slice.call(desktop.querySelectorAll('.task-tab[data-window]'));
-  var zTop = 30;
+  var windowOrder = windows.slice();
 
   function tabFor(win) {
     return tabs.filter(function (t) { return t.dataset.window === win.id; })[0] || null;
   }
 
   function focusWindow(win) {
-    zTop += 1;
-    win.style.zIndex = zTop;
+    windowOrder = windowOrder.filter(function (w) { return w !== win; });
+    windowOrder.push(win);
+    windowOrder.forEach(function (w, index) { w.style.zIndex = 30 + index; });
     windows.forEach(function (w) {
       w.classList.toggle('inactive', w !== win);
       var t = tabFor(w);
@@ -550,10 +557,12 @@ function shutDown() {
     win.classList.add('minimized');
     var t = tabFor(win);
     if (t) t.classList.remove('active');
+    syncVideoPlayback();
+    focusNextWindow(win);
   }
 
   function closeWindow(win) {
-    win.classList.add('minimized');
+    minimizeWindow(win);
     win.dataset.closed = 'true';
     var t = tabFor(win);
     if (t) t.classList.remove('active');
@@ -563,13 +572,46 @@ function shutDown() {
     win.classList.remove('minimized');
     delete win.dataset.closed;
     focusWindow(win);
+    syncVideoPlayback();
   }
+
+  function focusNextWindow(hiddenWindow) {
+    var visible = windowOrder.filter(function (w) { return w !== hiddenWindow && !w.classList.contains('minimized') && w.getClientRects().length; });
+    if (visible.length) focusWindow(visible[visible.length - 1]);
+    var tab = tabFor(hiddenWindow);
+    if (hiddenWindow.contains(document.activeElement) && tab) tab.focus();
+  }
+
+  function syncVideoPlayback() {
+    windows.forEach(function (win) {
+      win.querySelectorAll('video').forEach(function (video) {
+        if (document.hidden || win.classList.contains('minimized') || !win.getClientRects().length) {
+          video.pause();
+        } else if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          var playback = video.play();
+          if (playback) playback.catch(function () {});
+        }
+      });
+    });
+  }
+  document.addEventListener('visibilitychange', syncVideoPlayback);
+  window.addEventListener('resize', function () {
+    windows.forEach(function (win) {
+      ['left', 'right', 'top', 'bottom', 'width'].forEach(function (property) { win.style.removeProperty(property); });
+    });
+    syncVideoPlayback();
+  });
+  var initialWindow = windows.filter(function (win) { return win.getClientRects().length; }).pop();
+  if (initialWindow) focusWindow(initialWindow);
+  syncVideoPlayback();
 
   windows.forEach(function (win) {
     // Bring to front on any interaction
     win.addEventListener('pointerdown', function () {
       focusWindow(win);
     });
+
+    win.addEventListener('focusin', function () { focusWindow(win); });
 
     // Titlebar buttons
     win.querySelectorAll('.window-controls button').forEach(function (btn) {
@@ -585,9 +627,13 @@ function shutDown() {
     // Drag by titlebar (desktop-size screens only)
     var bar = win.querySelector('.win-titlebar');
     if (!bar) return;
+    bar.addEventListener('dblclick', function (e) {
+      if (!e.target.closest('button')) win.querySelector('[data-action="maximize"]').click();
+    });
     bar.addEventListener('pointerdown', function (e) {
+      if (e.button !== 0) return;
       if (e.target.closest('button')) return;
-      if (window.innerWidth < 768) return;
+      if (window.innerWidth <= 768 || win.classList.contains('maximized')) return;
 
       var winRect = win.getBoundingClientRect();
       var deskRect = desktop.getBoundingClientRect();
@@ -614,10 +660,12 @@ function shutDown() {
       function onUp() {
         document.removeEventListener('pointermove', onMove);
         document.removeEventListener('pointerup', onUp);
+        document.removeEventListener('pointercancel', onUp);
       }
 
       document.addEventListener('pointermove', onMove);
       document.addEventListener('pointerup', onUp);
+      document.addEventListener('pointercancel', onUp);
       e.preventDefault();
     });
   });
@@ -636,4 +684,58 @@ function shutDown() {
       }
     });
   });
+})();
+
+// Shared maximize controls work on desktop and content windows.
+document.querySelectorAll('[data-action="maximize"]').forEach(function (button) {
+  button.addEventListener('click', function () {
+    var win = button.closest('.win-window, .inner-window');
+    var expanded = win.classList.toggle('maximized');
+    button.setAttribute('aria-pressed', String(expanded));
+    button.title = expanded ? 'Restore' : 'Maximize';
+  });
+});
+
+// Subtle glass response, only for precise pointers and full-motion preferences.
+(function () {
+  var monitor = document.getElementById('computerContainer');
+  if (!monitor || !window.matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches) return;
+  var frame;
+  monitor.addEventListener('pointermove', function (event) {
+    if (monitor.classList.contains('zooming')) return;
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(function () {
+      var rect = monitor.getBoundingClientRect();
+      monitor.style.setProperty('--tilt-x', ((event.clientX - rect.left) / rect.width - .5) * 4 + 'deg');
+      monitor.style.setProperty('--tilt-y', -((event.clientY - rect.top) / rect.height - .5) * 3 + 'deg');
+      var glass = document.getElementById('screenOverlay');
+      var glassRect = glass.getBoundingClientRect();
+      glass.style.setProperty('--glass-x', (event.clientX - glassRect.left) / glassRect.width * 100 + '%');
+      glass.style.setProperty('--glass-y', (event.clientY - glassRect.top) / glassRect.height * 100 + '%');
+    });
+  });
+  monitor.addEventListener('pointerleave', function () {
+    cancelAnimationFrame(frame);
+    monitor.style.setProperty('--tilt-x', '0deg');
+    monitor.style.setProperty('--tilt-y', '0deg');
+  });
+})();
+
+// Back/forward cache restores must not retain the opaque exit transition.
+window.addEventListener('pageshow', function (event) {
+  var overlay = document.getElementById('pageTransition');
+  if (overlay) overlay.classList.remove('active');
+  if (event.persisted && document.getElementById('screenOverlay')) window.location.reload();
+});
+
+// Respect motion preferences for looping media, including initial autoplay.
+(function () {
+  var preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function update() {
+    document.querySelectorAll('video[autoplay]').forEach(function (video) {
+      if (preference.matches) { video.pause(); video.removeAttribute('autoplay'); }
+    });
+  }
+  update();
+  preference.addEventListener('change', update);
 })();

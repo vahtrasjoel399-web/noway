@@ -23,16 +23,16 @@
           <span data-i18n="win.privacy">Privaatsuspoliitika — Noway</span>
         </span>
         <div class="window-controls">
-          <button title="Minimize">_</button>
-          <button title="Maximize">&#9633;</button>
+          <button title="Minimize" onclick="navigateTo('desktop.html')">_</button>
+          <button title="Maximize" data-action="maximize" aria-pressed="false">&#9633;</button>
           <button title="Close" onclick="navigateTo('desktop.html')">&#10005;</button>
         </div>
       </div>
       <div class="win-menubar">
         <button onclick="navigateTo('desktop.html')" data-i18n="mb.back">&#8592; Tagasi</button>
-        <button data-i18n="mb.file">Fail</button>
-        <button data-i18n="mb.view">Vaade</button>
-        <button data-i18n="mb.help">Abi</button>
+
+
+
       </div>
       <div class="win-body">
         <div class="inner-content">
@@ -112,7 +112,7 @@
         start
       </button>
       <div class="taskbar-tabs">
-        <button class="task-tab active">
+        <button class="task-tab active" onclick="navigateTo('desktop.html')">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           <span data-i18n="tab.privacy">Privaatsuspoliitika</span>
         </button>

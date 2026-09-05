@@ -12,6 +12,7 @@
 
   <div class="landing-page" id="landingPage">
 
+    <div class="landing-wordmark">NOWAY<span>®</span></div>
     <button class="lang-switch lang-switch--landing" title="Keel / Language">ET</button>
 
     <div class="computer-container" id="computerContainer">
@@ -27,7 +28,7 @@
           <source src="IMAGES/nw_lcd_screen-trim.mp4" type="video/mp4">
         </video>
         <!-- Preloaded: shown on click -->
-        <video class="screen-video screen-video-hidden" id="screenVideoClick" muted playsinline preload="auto">
+        <video class="screen-video screen-video-hidden" id="screenVideoClick" muted playsinline preload="metadata">
           <source src="IMAGES/nw_lcd_screen-trim1.mp4" type="video/mp4">
         </video>
         <!-- CRT vignette -->
@@ -37,7 +38,10 @@
       </div>
     </div>
 
-    <p class="hint-text" id="hintText" data-i18n="hint">&#9654; klõpsa ekraanil</p>
+    <div class="landing-actions">
+      <p class="hint-text" id="hintText" data-i18n="hint">▶ klõpsa ekraanil</p>
+    </div>
+    <footer class="landing-footer"><span data-i18n="studio">Sõltumatu loovstuudio · Eesti</span></footer>
 
   </div>
 

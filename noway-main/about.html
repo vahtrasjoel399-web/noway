@@ -23,16 +23,16 @@
           <span data-i18n="win.about">Meist ja kontakt — Noway</span>
         </span>
         <div class="window-controls">
-          <button title="Minimize">_</button>
-          <button title="Maximize">&#9633;</button>
+          <button title="Minimize" onclick="navigateTo('desktop.html')">_</button>
+          <button title="Maximize" data-action="maximize" aria-pressed="false">&#9633;</button>
           <button title="Close" onclick="navigateTo('desktop.html')">&#10005;</button>
         </div>
       </div>
       <div class="win-menubar">
         <button onclick="navigateTo('desktop.html')" data-i18n="mb.back">&#8592; Tagasi</button>
-        <button data-i18n="mb.file">Fail</button>
-        <button data-i18n="mb.view">Vaade</button>
-        <button data-i18n="mb.help">Abi</button>
+
+
+
       </div>
       <div class="win-body">
         <div class="inner-content">
@@ -100,7 +100,7 @@
                 <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                 <span data-i18n="form.send">saada</span>
               </button>
-              <p class="form-status" hidden></p>
+              <p class="form-status" role="status" aria-live="polite" hidden></p>
             </form>
             <p class="privacy-note" data-i18n-html="ct.privnote">Sinu andmeid kasutame ainult sulle vastamiseks — <a href="privacy.html" onclick="event.preventDefault(); navigateTo('privacy.html');">privaatsuspoliitika</a>.</p>
           </div>
@@ -151,7 +151,7 @@
         start
       </button>
       <div class="taskbar-tabs">
-        <button class="task-tab active">
+        <button class="task-tab active" onclick="navigateTo('desktop.html')">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           <span data-i18n="tab.about">Meist ja kontakt</span>
         </button>

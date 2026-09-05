@@ -25,7 +25,7 @@
         </span>
         <div class="window-controls">
           <button title="Minimize" data-action="minimize">_</button>
-          <button title="Maximize">&#9633;</button>
+          <button title="Maximize" data-action="maximize" aria-pressed="false">&#9633;</button>
           <button title="Close" data-action="close">&#10005;</button>
         </div>
       </div>
@@ -45,7 +45,7 @@
         </span>
         <div class="window-controls">
           <button title="Minimize" data-action="minimize">_</button>
-          <button title="Maximize">&#9633;</button>
+          <button title="Maximize" data-action="maximize" aria-pressed="false">&#9633;</button>
           <button title="Close" data-action="close">&#10005;</button>
         </div>
       </div>
@@ -68,7 +68,7 @@
             <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             <span data-i18n="form.send">saada</span>
           </button>
-          <p class="form-status" hidden></p>
+          <p class="form-status" role="status" aria-live="polite" hidden></p>
         </form>
       </div>
     </div>
@@ -76,7 +76,7 @@
     <!-- Desktop icons — horizontal bottom row -->
     <div class="desktop-icons-row">
 
-      <a href="trend.html" class="desktop-icon" onclick="event.preventDefault(); navigateTo('trend.html');">
+      <a href="trend.html#portfolio" class="desktop-icon" onclick="event.preventDefault(); navigateTo('trend.html#portfolio');">
         <img src="IMAGES/User Accounts.png" alt="" class="icon-img">
         <span class="icon-label" data-i18n="icon.portfolio">portfoolio</span>
       </a>
@@ -86,7 +86,7 @@
         <span class="icon-label" data-i18n="icon.services">teenused</span>
       </a>
 
-      <a href="about.html" class="desktop-icon" onclick="event.preventDefault(); navigateTo('about.html');">
+      <a href="about.html#kontakt" class="desktop-icon" onclick="event.preventDefault(); navigateTo('about.html#kontakt');">
         <img src="IMAGES/Phone.png" alt="" class="icon-img">
         <span class="icon-label" data-i18n="icon.contact">kontakt</span>
       </a>
@@ -105,7 +105,7 @@
         <span>Noway</span>
       </div>
       <div class="start-menu-body">
-        <a class="start-menu-item" href="trend.html" onclick="event.preventDefault(); navigateTo('trend.html');">
+        <a class="start-menu-item" href="trend.html#portfolio" onclick="event.preventDefault(); navigateTo('trend.html#portfolio');">
           <img src="IMAGES/User Accounts.png" alt="">
           <span data-i18n="menu.portfolio">Portfoolio</span>
         </a>
@@ -113,7 +113,7 @@
           <img src="IMAGES/Game Controller.png" alt="">
           <span data-i18n="menu.services">Teenused</span>
         </a>
-        <a class="start-menu-item" href="about.html" onclick="event.preventDefault(); navigateTo('about.html');">
+        <a class="start-menu-item" href="about.html#kontakt" onclick="event.preventDefault(); navigateTo('about.html#kontakt');">
           <img src="IMAGES/Phone.png" alt="">
           <span data-i18n="menu.contact">Kontakt</span>
         </a>

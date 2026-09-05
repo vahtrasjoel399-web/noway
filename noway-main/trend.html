@@ -23,16 +23,16 @@
           <span data-i18n="win.services">Teenused ja portfoolio — Noway</span>
         </span>
         <div class="window-controls">
-          <button title="Minimize">_</button>
-          <button title="Maximize">&#9633;</button>
+          <button title="Minimize" onclick="navigateTo('desktop.html')">_</button>
+          <button title="Maximize" data-action="maximize" aria-pressed="false">&#9633;</button>
           <button title="Close" onclick="navigateTo('desktop.html')">&#10005;</button>
         </div>
       </div>
       <div class="win-menubar">
         <button onclick="navigateTo('desktop.html')" data-i18n="mb.back">&#8592; Tagasi</button>
-        <button data-i18n="mb.file">Fail</button>
-        <button data-i18n="mb.view">Vaade</button>
-        <button data-i18n="mb.help">Abi</button>
+
+
+
       </div>
       <div class="win-body">
         <div class="inner-content">
@@ -91,26 +91,26 @@
             </div>
           </div>
 
-          <h2 data-i18n="pf.h2">Portfoolio</h2>
+          <h2 id="portfolio" data-i18n="pf.h2">Portfoolio</h2>
           <p data-i18n="pf.intro">Valik meie enda kujundatud vaateid — arvuti- ja mobiilivaated, algusest lõpuni meie disainitud.</p>
 
           <div class="portfolio-grid">
             <figure class="portfolio-item">
-              <span class="shot"><img src="IMAGES/nw_web_comp_home.jpg" alt="Noway veebilehe avaleht arvutivaates"></span>
+              <span class="shot"><img loading="lazy" decoding="async" src="IMAGES/nw_web_comp_home.jpg" alt="Noway veebilehe avaleht arvutivaates"></span>
               <figcaption>
                 <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                 nw_web_home.jpg
               </figcaption>
             </figure>
             <figure class="portfolio-item">
-              <span class="shot"><img src="IMAGES/nw_web_comp_menu.jpg" alt="Noway veebilehe menüüvaade"></span>
+              <span class="shot"><img loading="lazy" decoding="async" src="IMAGES/nw_web_comp_menu.jpg" alt="Noway veebilehe menüüvaade"></span>
               <figcaption>
                 <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                 nw_web_menu.jpg
               </figcaption>
             </figure>
             <figure class="portfolio-item">
-              <span class="shot"><img src="IMAGES/nw_web_naide.jpg" alt="Noway veebilehe kujundusnäide"></span>
+              <span class="shot"><img loading="lazy" decoding="async" src="IMAGES/nw_web_naide.jpg" alt="Noway veebilehe kujundusnäide"></span>
               <figcaption>
                 <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                 nw_web_naide.jpg
@@ -167,7 +167,7 @@
         start
       </button>
       <div class="taskbar-tabs">
-        <button class="task-tab active">
+        <button class="task-tab active" onclick="navigateTo('desktop.html')">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
           <span data-i18n="tab.services">Teenused ja portfoolio</span>
         </button>
